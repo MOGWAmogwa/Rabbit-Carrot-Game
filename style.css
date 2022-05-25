@@ -101,7 +101,7 @@ body{
     transform: scale(1.05);
 }
 
-.message-outer{
+.replay-pop-up{
     margin: 0 auto;
     position: relative;
     top: 431px;
@@ -111,7 +111,7 @@ body{
     border-radius: 10px;
     display: none;
 }
-.message-outer.open{
+.replay-pop-up.open{
     display: block;
 }
 
@@ -150,6 +150,43 @@ p{
 }
 
 
+.timer-outer{
+    position: absolute;
+    top: 20%;
+    left: 43.86%;
+    text-align: center;
+    width: 200px;
+    height: 98px;
+    background-color: bisque;
+    border: 3px solid rgb(177, 101, 30);
+    border-radius: 10px;
+}
+
+.timer-outer.close{
+    display: none;
+}
+.timer-outer span {
+    position: relative;
+    top: 16%;
+    font-size: 45px;
+    color: rgb(177, 101, 30);
+}
+
+
+.game-over-pop-up{
+    margin: 0 auto;
+    position: relative;
+    top: 431px;
+    width: 662px;
+    height: 350px;
+    background-color: rgba(66, 22, 0, 0.76);
+    border-radius: 10px;
+    display: none;
+}
+
+.game-over-pop-up.open{
+    display: block;
+}
 
 
 

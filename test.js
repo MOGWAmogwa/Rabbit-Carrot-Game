@@ -1,12 +1,11 @@
-const button = document.querySelector('button');
+const startbutton = document.querySelector('button.start');
 
-let count = 0 ;
+let count = 10 ;
 let myinterval = setInterval(() => {
     console.log(count);
-    count++
+    count--
 }, 1000);
 
-button.addEventListener('click', (e)=>{
-    count = 0;
+startbutton.addEventListener('click', (e)=>{
     clearInterval(myinterval);
 })
