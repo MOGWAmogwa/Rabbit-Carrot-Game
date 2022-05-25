@@ -1,0 +1,162 @@
+/* Global */
+
+:root{
+
+    /* Font size */
+
+    --play-button-size : 80px
+
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url(./img/background.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+
+}
+
+.bug{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+.bug:hover{
+    transform: scale(1.1);
+}
+
+.carrot{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.container{
+    position: fixed;
+    bottom: 20px;
+    left: 45px;
+    width: 1620px;
+    height: 483px;
+}
+
+.play-start-button{
+    position: absolute;
+    top: 5%;
+    left: 47%;
+    border: 3px solid rgb(177, 101, 30);
+    background-color: bisque;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+.play-start-button:hover{
+    transform: scale(1.05);
+}
+
+.play-start-button i {
+    color:rgb(177, 101, 30);
+    font-size: 60px;
+    position: relative;
+    left: 5%;
+}
+
+.play-start-button.close{
+    display: none;
+}
+
+
+.stop-button{
+    position: absolute;
+    top: 5%;
+    left: 47%;
+    border: 3px solid rgb(177, 101, 30);
+    background-color: bisque;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: all 150ms ease;
+    display: none;
+}
+
+.stop-button.open{
+    display: block;
+}
+
+.stop-button i {
+    color:rgb(177, 101, 30);
+    font-size: 60px;
+}
+
+.stop-button:hover{
+    transform: scale(1.05);
+}
+
+.message-outer{
+    margin: 0 auto;
+    position: relative;
+    top: 431px;
+    width: 662px;
+    height: 350px;
+    background-color: rgba(66, 22, 0, 0.76);
+    border-radius: 10px;
+    display: none;
+}
+.message-outer.open{
+    display: block;
+}
+
+.replay-button{
+    margin: 0 auto;
+    position: relative;
+    top: 15%;
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+    border-radius: 10px;
+    border: 3px solid rgb(177, 101, 30);
+    text-align: center;
+    cursor: pointer;
+    transition: all 150ms ease;
+}
+
+.replay-button:hover{
+    transform: scale(1.05);
+}
+
+.replay-button i {
+    color: rgb(177, 101, 30);
+    font-size: 60px;
+    position: relative;
+    top: 19%;
+    left: -3%;
+}
+
+p{
+    font-size: 45px;
+    color: bisque;
+    text-align: center;
+    margin: 100px 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
