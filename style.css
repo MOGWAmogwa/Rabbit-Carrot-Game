@@ -48,7 +48,7 @@ body{
 
 .play-start-button{
     position: absolute;
-    top: 5%;
+    top: 2%;
     left: 47%;
     border: 3px solid rgb(177, 101, 30);
     background-color: bisque;
@@ -76,7 +76,7 @@ body{
 
 .stop-button{
     position: absolute;
-    top: 5%;
+    top: 2%;
     left: 47%;
     border: 3px solid rgb(177, 101, 30);
     background-color: bisque;
@@ -152,7 +152,7 @@ p{
 
 .timer-outer{
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 43.86%;
     text-align: center;
     width: 200px;
@@ -167,7 +167,7 @@ p{
 }
 .timer-outer span {
     position: relative;
-    top: 16%;
+    top: 22%;
     font-size: 45px;
     color: rgb(177, 101, 30);
 }
@@ -188,9 +188,47 @@ p{
     display: block;
 }
 
+.game-clear-pop-up{
+    margin: 0 auto;
+    position: relative;
+    top: 431px;
+    width: 662px;
+    height: 350px;
+    background-color: rgba(66, 22, 0, 0.76);
+    border-radius: 10px;
+    display: none;
+}
+
+.game-over-pop-up.open{
+    display: block;
+}
 
 
 
+.carrotToBeDeleted{
+    position: absolute;
+    top: 30%;
+    left: 48.3%;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(169, 214, 157);
+    border: 3px solid rgb(177, 101, 30);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.carrotToBeDeleted span{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    position: relative;
+    top: 3px;
+    left: -1px;
+
+}
+
+.carrotToBeDeleted.close{
+    display: none;
+}
 
 
 

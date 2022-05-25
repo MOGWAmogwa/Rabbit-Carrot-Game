@@ -5,6 +5,12 @@ const stopButton = document.querySelector('.stop-button');
 const replayPopUp = document.querySelector('.replay-pop-up');
 const replayButton = document.querySelector('.replay-button');
 const timerOuter = document.querySelector('.timer-outer');
+const gameOverPopUp = document.querySelector('.game-over-pop-up');
+const gameClearPopUp = document.querySelector('.game-clear-pop-up');
+const carrotCount = document.querySelector('.carrotToBeDeleted');
+
+
+let harvestCarrotCount=10;
 
 
 
@@ -33,16 +39,43 @@ function makeBugCarrot () {
         `
         
     }
+
     let myInterval;
-    let startSeconds = 10;
+    let startSeconds;
     function Timer(){
+        startSeconds = 5;
         myInterval = setInterval(() => {
-                console.log(startSeconds);
                 timerOuter.innerHTML = `
-                    <span> 0:${startSeconds} </span>
+                    <span> 0:${startSeconds-1} </span>
                 `
                 startSeconds--
+                if(startSeconds<=0){
+                    console.log('end');
+                    clearInterval(myInterval)
+                    stopButton.classList.remove('open');
+                    timerOuter.classList.add('close');
+                    gameOverPopUp.classList.toggle('open');
+                    carrotCount.classList.toggle('close')
+                    const replayButton = document.querySelector('.game-over-pop-up .replay-button')
+                    replayButton.addEventListener('click', (event)=>{
+                        startButton.classList.remove('close');
+                        container.innerHTML=``
+                        timerOuter.innerHTML = `
+                        <span> 0:0</span>
+                        `
+                        carrotCount.innerHTML = `
+                        <span> 10 </span>
+                        `
+                        timerOuter.classList.toggle('close')
+                        gameOverPopUp.classList.remove('open');
+                        carrotCount.classList.toggle('close')
+                        startSeconds=10;      
+                        harvestCarrotCount=10;              
+                    })
+
+                }
         }, 1000);
+     
         return myInterval;
 
     }
@@ -51,11 +84,10 @@ function makeBugCarrot () {
     startButton.addEventListener('click', (event)=>{
         
         Timer()
-
-        if (startSeconds <=0){
-            console.log('hi');
-        }
- 
+        timerOuter.innerHTML = `
+        <span> 0:${startSeconds} </span>
+    `
+   
 
         startButton.classList.toggle('close')
         startButton.nextElementSibling.classList.toggle('open');
@@ -70,9 +102,18 @@ function makeBugCarrot () {
             let randomNumberY =  Math.floor(Math.random()*(350-0+1))+0;
             carrot.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
         
-    
+
             carrot.addEventListener('click', (event)=>{
                 carrot.remove()
+                harvestCarrotCount--
+                carrotCount.innerHTML = `
+                    <span> ${harvestCarrotCount} </span>
+                `
+                if(harvestCarrotCount==0){
+                    clearInterval(myInterval);
+                    //////💖 여기 작업하다맘~!!!!
+                }
+
               
             })
         })
@@ -81,7 +122,7 @@ function makeBugCarrot () {
     
         bugs.forEach((bug)=>{
             
-            let randomNumberX =  Math.floor(Math.random()*(1500-150+1))+150;
+            let randomNumberX =  Math.floor(Math.random()*(1500-150+1))+150; // 인터넷에 있는거 ctrl+c ctrl+v 👍
             let randomNumberY =  Math.floor(Math.random()*(350-100+1))+100;
             bug.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
     
@@ -96,8 +137,13 @@ function makeBugCarrot () {
         replayPopUp.classList.add('open');
         clearInterval(myInterval)
         timerOuter.classList.add('close');
+        carrotCount.classList.add('close');
+        
+
 
     })
+
+
 
     replayButton.addEventListener('click', (event)=>{
         startButton.classList.remove('close');
@@ -106,8 +152,14 @@ function makeBugCarrot () {
         timerOuter.innerHTML = `
                     <span> 0:0</span>
                 `
+
         timerOuter.classList.toggle('close')
-        startSeconds=10;
+        carrotCount.innerHTML = `
+        <span> 10 </span>
+        `
+        carrotCount.classList.toggle('close')
+        startSeconds=5;
+        harvestCarrotCount=10;
 
     })
 
