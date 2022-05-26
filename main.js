@@ -9,10 +9,13 @@ const gameOverPopUp = document.querySelector('.game-over-pop-up');
 const gameClearPopUp = document.querySelector('.game-clear-pop-up');
 const carrotCount = document.querySelector('.carrotToBeDeleted');
 
+// Audio
+
+
+
+
 
 let harvestCarrotCount=10;
-
-
 
 
 function makeBugCarrot () {
@@ -89,7 +92,9 @@ function gameStart(){
         
         let randomNumberX =  Math.floor(Math.random()*(1500-0+1))+0;
         let randomNumberY =  Math.floor(Math.random()*(350-0+1))+0;
-        carrot.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
+        // carrot.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
+        carrot.style.top = `${randomNumberY}px`;
+        carrot.style.left = `${randomNumberX}px`;
     
 
         carrot.addEventListener('click', (event)=>{
@@ -119,8 +124,9 @@ function gameStart(){
         
         let randomNumberX =  Math.floor(Math.random()*(1500-150+1))+150; // 인터넷에 있는거 ctrl+c ctrl+v 👍
         let randomNumberY =  Math.floor(Math.random()*(350-100+1))+100;
-        bug.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
-
+        // bug.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
+        bug.style.top = `${randomNumberY}px`;
+        bug.style.left = `${randomNumberX}px`;
         bug.addEventListener('click', (event)=>{
             clearInterval(myInterval);
             container.innerHTML=``

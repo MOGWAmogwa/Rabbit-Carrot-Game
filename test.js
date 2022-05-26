@@ -1,11 +1,12 @@
-const startbutton = document.querySelector('button.start');
+const button = document.querySelector('button')
+const stopaudioButton = document.querySelector('#stop')
+let audio = new Audio();
+audio.src = 'sound/bg.mp3';
 
-let count = 10 ;
-let myinterval = setInterval(() => {
-    console.log(count);
-    count--
-}, 1000);
+button.addEventListener('click', (event)=>{
+    audio.play()
+})
 
-startbutton.addEventListener('click', (e)=>{
-    clearInterval(myinterval);
+stopaudioButton.addEventListener('click', (event)=>{
+    audio.pause()
 })
