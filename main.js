@@ -51,13 +51,14 @@ function makeBugCarrot () {
                 startSeconds--
                 if(startSeconds<=0){
                     clearInterval(myInterval)
-                    stopButton.classList.remove('open');
-                    timerOuter.classList.add('close');
+                    stopButton.classList.toggle('open');
+                    timerOuter.classList.toggle('close');
                     gameOverPopUp.classList.toggle('open');
                     carrotCount.classList.toggle('close')
                     const replayButton = document.querySelector('.game-over-pop-up .replay-button')
                     replayButton.addEventListener('click', (event)=>{
-                        startButton.classList.remove('close');
+
+                        startButton.classList.toggle('close');
                         container.innerHTML=``
                         timerOuter.innerHTML = `
                         <span> 0:0</span>
@@ -66,7 +67,7 @@ function makeBugCarrot () {
                         <span> 10 </span>
                         `
                         timerOuter.classList.toggle('close')
-                        gameOverPopUp.classList.remove('open');
+                        gameOverPopUp.classList.toggle('open');
                         carrotCount.classList.toggle('close')
                         startSeconds=10;      
                         harvestCarrotCount=10;              
@@ -87,9 +88,8 @@ function makeBugCarrot () {
         <span> 0:${startSeconds} </span>
     `
    
-
         startButton.classList.toggle('close')
-        startButton.nextElementSibling.classList.toggle('open');
+        stopButton.classList.toggle('open');
     
         makeBugCarrot()
     
@@ -110,13 +110,14 @@ function makeBugCarrot () {
                 `
                 if(harvestCarrotCount==0){
                     clearInterval(myInterval);
-                    stopButton.classList.remove('open');
-                    timerOuter.classList.add('close');
+                    stopButton.classList.toggle('open');
+                    timerOuter.classList.toggle('close');
                     carrotCount.classList.toggle('close')
                     gameClearPopUp.classList.toggle('open');
                     const replayButton = document.querySelector('.game-clear-pop-up .replay-button')
                     replayButton.addEventListener('click', (event)=>{
-                        startButton.classList.remove('close');
+
+                        startButton.classList.toggle('close');
                         container.innerHTML=``
                         timerOuter.innerHTML = `
                         <span> 0:0</span>
@@ -125,7 +126,7 @@ function makeBugCarrot () {
                         <span> 10 </span>
                         `
                         timerOuter.classList.toggle('close')
-                        gameOverPopUp.classList.remove('open');
+                        gameClearPopUp.classList.toggle('open');
                         carrotCount.classList.toggle('close')
                         startSeconds=10;      
                         harvestCarrotCount=10;              
@@ -151,11 +152,11 @@ function makeBugCarrot () {
     
     stopButton.addEventListener('click', (event)=>{
 
-        stopButton.classList.remove('open');
-        replayPopUp.classList.add('open');
+        stopButton.classList.toggle('open');
+        replayPopUp.classList.toggle('open');
         clearInterval(myInterval)
-        timerOuter.classList.add('close');
-        carrotCount.classList.add('close');
+        timerOuter.classList.toggle('close');
+        carrotCount.classList.toggle('close');
         
 
 
@@ -164,7 +165,8 @@ function makeBugCarrot () {
 
 
     replayButton.addEventListener('click', (event)=>{
-        startButton.classList.remove('close');
+ 
+        startButton.classList.toggle('close');
         container.innerHTML=``
         replayPopUp.classList.toggle('open')
         timerOuter.innerHTML = `
