@@ -199,7 +199,7 @@ p{
     display: none;
 }
 
-.game-over-pop-up.open{
+.game-clear-pop-up.open{
     display: block;
 }
 

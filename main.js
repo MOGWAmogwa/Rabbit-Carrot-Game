@@ -43,14 +43,13 @@ function makeBugCarrot () {
     let myInterval;
     let startSeconds;
     function Timer(){
-        startSeconds = 5;
+        startSeconds = 10;
         myInterval = setInterval(() => {
                 timerOuter.innerHTML = `
                     <span> 0:${startSeconds-1} </span>
                 `
                 startSeconds--
                 if(startSeconds<=0){
-                    console.log('end');
                     clearInterval(myInterval)
                     stopButton.classList.remove('open');
                     timerOuter.classList.add('close');
@@ -111,7 +110,26 @@ function makeBugCarrot () {
                 `
                 if(harvestCarrotCount==0){
                     clearInterval(myInterval);
-                    //////💖 여기 작업하다맘~!!!!
+                    stopButton.classList.remove('open');
+                    timerOuter.classList.add('close');
+                    carrotCount.classList.toggle('close')
+                    gameClearPopUp.classList.toggle('open');
+                    const replayButton = document.querySelector('.game-clear-pop-up .replay-button')
+                    replayButton.addEventListener('click', (event)=>{
+                        startButton.classList.remove('close');
+                        container.innerHTML=``
+                        timerOuter.innerHTML = `
+                        <span> 0:0</span>
+                        `
+                        carrotCount.innerHTML = `
+                        <span> 10 </span>
+                        `
+                        timerOuter.classList.toggle('close')
+                        gameOverPopUp.classList.remove('open');
+                        carrotCount.classList.toggle('close')
+                        startSeconds=10;      
+                        harvestCarrotCount=10;              
+                    })
                 }
 
               
@@ -158,7 +176,7 @@ function makeBugCarrot () {
         <span> 10 </span>
         `
         carrotCount.classList.toggle('close')
-        startSeconds=5;
+        startSeconds=10;
         harvestCarrotCount=10;
 
     })
