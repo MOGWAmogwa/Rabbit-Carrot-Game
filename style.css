@@ -216,15 +216,19 @@ p{
     background-color: rgb(169, 214, 157);
     border: 3px solid rgb(177, 101, 30);
     border-radius: 50%;
-    text-align: center;
+    justify-content: center;
+    display: flex;
+    
 }
 
 .carrotToBeDeleted span{
     color: rgb(255, 255, 255);
     font-size: 30px;
-    position: relative;
-    top: 7px;
-    left: -1px;
+    align-self: center;
+    letter-spacing: 1px;
+
+    
+
 
 }
 
