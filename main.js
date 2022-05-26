@@ -11,6 +11,44 @@ const carrotCount = document.querySelector('.carrotToBeDeleted');
 
 // Audio
 
+let bg = new Audio;
+let alertt = new Audio;
+let bugPull = new Audio;
+let carrotPull = new Audio;
+let gameWin = new Audio;
+
+
+
+
+
+
+function bgSound(){
+    bg.src = "sound/bg.mp3";
+    bg.play()
+    return bg
+}
+function alertSound(){
+    alertt.src = "sound/alert.wav";
+    alertt.play()
+    return alertt
+}
+function bugPullSound(){
+    bugPull.src = "sound/bug_pull.mp3";
+    bugPull.play()
+    return bugPull
+}
+function carrotPullSound(){
+    
+    carrotPull.src = "sound/carrot_pull.mp3";
+    carrotPull.play()
+    return carrotPull
+}
+function gameWinSound(){
+    gameWin.src = "sound/game_win.mp3";
+    gameWin.play()
+    return gameWin
+}
+
 
 
 
@@ -56,10 +94,12 @@ function Timer(){
             startSeconds--
             if(startSeconds<=0){
                 clearInterval(myInterval)
+                bgSound().pause()
+                bugPullSound()
                 stopButton.classList.toggle('open');
-                timerOuter.classList.toggle('close');
                 gameOverPopUp.classList.toggle('open');
-                carrotCount.classList.toggle('close')
+                // timerOuter.classList.toggle('close');
+                // carrotCount.classList.toggle('close')
                 container.innerHTML=``
                 
 
@@ -76,6 +116,8 @@ startButton.addEventListener('click', (event)=>{
 })
 
 function gameStart(){
+    bgSound()
+
     Timer()
     timerOuter.innerHTML = `
         <span> 0:${startSeconds} </span>
@@ -98,17 +140,24 @@ function gameStart(){
     
 
         carrot.addEventListener('click', (event)=>{
+
             carrot.remove()
+            carrotPullSound()
             harvestCarrotCount--
             carrotCount.innerHTML = `
                 <span> ${harvestCarrotCount} </span>
             `
             if(harvestCarrotCount==0){
                 clearInterval(myInterval);
+                gameWinSound()
+                bgSound().pause()
                 container.innerHTML=``
                 stopButton.classList.toggle('open');
-                timerOuter.classList.toggle('close');
-                carrotCount.classList.toggle('close')
+                // timerOuter.classList.toggle('close');
+                // carrotCount.classList.toggle('close');
+                carrotCount.innerHTML=`
+                    <span> ${harvestCarrotCount} </span>
+                `
                 gameClearPopUp.classList.toggle('open');
                 
               
@@ -129,10 +178,12 @@ function gameStart(){
         bug.style.left = `${randomNumberX}px`;
         bug.addEventListener('click', (event)=>{
             clearInterval(myInterval);
+            bugPullSound()
+            bgSound().pause()
             container.innerHTML=``
             stopButton.classList.toggle('open');
-            timerOuter.classList.toggle('close');
-            carrotCount.classList.toggle('close')
+            // timerOuter.classList.toggle('close');
+            // carrotCount.classList.toggle('close')
             gameOverPopUp.classList.toggle('open');
 
         })
@@ -145,6 +196,8 @@ function gameStart(){
 const GAMEOVERreplayButton = document.querySelector('.game-over-pop-up .replay-button')
 GAMEOVERreplayButton.addEventListener('click', (event)=>{
     gameStart()
+            timerOuter.classList.toggle('close');
+            carrotCount.classList.toggle('close')
     startButton.classList.toggle('close');
     // timerOuter.innerHTML = `
     // <span> 0:0</span>
@@ -168,6 +221,9 @@ const GAMECLEARreplayButton = document.querySelector('.game-clear-pop-up .replay
 
                 GAMECLEARreplayButton.addEventListener('click', (event)=>{
                     gameStart()
+                    timerOuter.classList.toggle('close');
+                carrotCount.classList.toggle('close');
+                    
                     startButton.classList.toggle('close');
                     
                     // timerOuter.innerHTML = `
@@ -190,7 +246,9 @@ const GAMECLEARreplayButton = document.querySelector('.game-clear-pop-up .replay
 
 
     stopButton.addEventListener('click', (event)=>{
-
+        alertSound()
+        bgSound().pause()
+        container.innerHTML=``
         stopButton.classList.toggle('open');
         replayPopUp.classList.toggle('open');
         clearInterval(myInterval)
@@ -198,6 +256,7 @@ const GAMECLEARreplayButton = document.querySelector('.game-clear-pop-up .replay
         carrotCount.classList.toggle('close');
         startSeconds=10;
         harvestCarrotCount=10;
+
 
 
     })
