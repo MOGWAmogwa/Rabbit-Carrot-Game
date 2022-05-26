@@ -104,7 +104,7 @@ body{
 .replay-pop-up{
     margin: 0 auto;
     position: relative;
-    top: 431px;
+    top: 294px;
     width: 662px;
     height: 350px;
     background-color: rgba(66, 22, 0, 0.76);
@@ -176,7 +176,7 @@ p{
 .game-over-pop-up{
     margin: 0 auto;
     position: relative;
-    top: 431px;
+    top: 294px;
     width: 662px;
     height: 350px;
     background-color: rgba(66, 22, 0, 0.76);
@@ -191,7 +191,7 @@ p{
 .game-clear-pop-up{
     margin: 0 auto;
     position: relative;
-    top: 431px;
+    top: 294px;
     width: 662px;
     height: 350px;
     background-color: rgba(66, 22, 0, 0.76);

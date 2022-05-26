@@ -55,8 +55,18 @@ function makeBugCarrot () {
                     timerOuter.classList.toggle('close');
                     gameOverPopUp.classList.toggle('open');
                     carrotCount.classList.toggle('close')
-                    const replayButton = document.querySelector('.game-over-pop-up .replay-button')
-                    replayButton.addEventListener('click', (event)=>{
+                    container.innerHTML=``
+                    
+
+                }
+        }, 1000);
+     
+        return myInterval;
+
+    }
+
+    const GAMEOVERreplayButton = document.querySelector('.game-over-pop-up .replay-button')
+                    GAMEOVERreplayButton.addEventListener('click', (event)=>{
 
                         startButton.classList.toggle('close');
                         container.innerHTML=``
@@ -71,14 +81,9 @@ function makeBugCarrot () {
                         carrotCount.classList.toggle('close')
                         startSeconds=10;      
                         harvestCarrotCount=10;              
+
+                        
                     })
-
-                }
-        }, 1000);
-     
-        return myInterval;
-
-    }
     
 
     startButton.addEventListener('click', (event)=>{
@@ -110,27 +115,13 @@ function makeBugCarrot () {
                 `
                 if(harvestCarrotCount==0){
                     clearInterval(myInterval);
+                    container.innerHTML=``
                     stopButton.classList.toggle('open');
                     timerOuter.classList.toggle('close');
                     carrotCount.classList.toggle('close')
                     gameClearPopUp.classList.toggle('open');
-                    const replayButton = document.querySelector('.game-clear-pop-up .replay-button')
-                    replayButton.addEventListener('click', (event)=>{
-
-                        startButton.classList.toggle('close');
-                        container.innerHTML=``
-                        timerOuter.innerHTML = `
-                        <span> 0:0</span>
-                        `
-                        carrotCount.innerHTML = `
-                        <span> 10 </span>
-                        `
-                        timerOuter.classList.toggle('close')
-                        gameClearPopUp.classList.toggle('open');
-                        carrotCount.classList.toggle('close')
-                        startSeconds=10;      
-                        harvestCarrotCount=10;              
-                    })
+                    
+                  
                 }
 
               
@@ -144,12 +135,45 @@ function makeBugCarrot () {
             let randomNumberX =  Math.floor(Math.random()*(1500-150+1))+150; // 인터넷에 있는거 ctrl+c ctrl+v 👍
             let randomNumberY =  Math.floor(Math.random()*(350-100+1))+100;
             bug.style.transform = `translate(${randomNumberX}px, ${randomNumberY}px`
+
+            bug.addEventListener('click', (event)=>{
+                clearInterval(myInterval);
+                container.innerHTML=``
+                stopButton.classList.toggle('open');
+                timerOuter.classList.toggle('close');
+                carrotCount.classList.toggle('close')
+                gameOverPopUp.classList.toggle('open');
+
+            })
     
     
         })
     
     })
     
+
+    const GAMECLEARreplayButton = document.querySelector('.game-clear-pop-up .replay-button')
+
+                    GAMECLEARreplayButton.addEventListener('click', (event)=>{
+
+                        startButton.classList.toggle('close');
+                        
+                        timerOuter.innerHTML = `
+                        <span> 0:0</span>
+                        `
+                        carrotCount.innerHTML = `
+                        <span> 10 </span>
+                        `
+                        timerOuter.classList.toggle('close')
+                        gameClearPopUp.classList.toggle('open');
+                        carrotCount.classList.toggle('close')
+                        startSeconds=10;      
+                        harvestCarrotCount=10;         
+                        
+                           
+                    })
+
+
     stopButton.addEventListener('click', (event)=>{
 
         stopButton.classList.toggle('open');
@@ -165,6 +189,9 @@ function makeBugCarrot () {
 
 
     replayButton.addEventListener('click', (event)=>{
+
+        
+        
  
         startButton.classList.toggle('close');
         container.innerHTML=``
